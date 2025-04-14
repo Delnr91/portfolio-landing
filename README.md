@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Plantilla de Portafolio Personal con React, Vite y Tailwind CSS
 
 Este repositorio contiene una plantilla para crear un portafolio personal de desarrollador web moderno, atractivo y personalizable. Está construido con tecnologías actuales y sigue una estructura de componentes organizada para facilitar su modificación.
@@ -29,7 +29,44 @@ Este repositorio contiene una plantilla para crear un portafolio personal de des
 
 El código fuente (`src`) está organizado de la siguiente manera:
 
-/src|-- /assets             # Imágenes, SVGs u otros recursos estáticos usados en componentes|-- /components|   |-- /common         # Componentes pequeños y reutilizables (Button, SectionTitle, Card, Badge)|   |-- /sections       # Componentes grandes que representan secciones de la página (Hero, About, Projects, etc.)|-- App.jsx             # Componente principal que ensambla las secciones y maneja navegación|-- index.css           # Archivo CSS global (principalmente para directivas de Tailwind)|-- main.jsx            # Punto de entrada de la aplicación React/Vite
+La estructura del proyecto está organizada para facilitar la navegación y el mantenimiento:
+
+```text
+portfolio-landing/
+├── public/
+│   ├── assets/             # Lugar sugerido para CV, imágenes de proyectos, foto perfil
+│   │   └── images/
+│   └── vite.svg            # Ejemplo de archivo público (favicon)
+├── src/
+│   ├── assets/             # Recursos usados internamente por componentes (raro en este proyecto)
+│   ├── components/
+│   │   ├── common/         # Componentes pequeños y reutilizables
+│   │   │   ├── Button.jsx
+│   │   │   ├── ProjectCard.jsx
+│   │   │   ├── SectionTitle.jsx
+│   │   │   └── SkillBadge.jsx
+│   │   └── sections/       # Componentes que representan secciones grandes de la página
+│   │       ├── About.jsx
+│   │       ├── Contact.jsx
+│   │       ├── Experience.jsx
+│   │       ├── Footer.jsx
+│   │       ├── Hero.jsx
+│   │       ├── Projects.jsx
+│   │       ├── TechStack.jsx
+│   │       └── Testimonials.jsx
+│   ├── App.jsx             # Ensambla las secciones, maneja el layout principal y menú
+│   ├── index.css           # CSS Global, principalmente directivas de Tailwind
+│   └── main.jsx            # Punto de entrada de la aplicación React
+├── .gitignore
+├── index.html              # Plantilla HTML principal (Vite la usa desde la raíz)
+├── package.json            # Dependencias y scripts del proyecto
+├── package-lock.json       # Lockfile de dependencias (npm)
+├── postcss.config.js       # Configuración de PostCSS (usado por Tailwind)
+├── README.md               # Este archivo
+├── tailwind.config.js      # Configuración de Tailwind CSS
+└── vite.config.js          # Configuración de Vite
+
+```
 ## 🚀 Cómo Empezar (Setup Local)
 
 1.  **Clonar el Repositorio (si está en GitHub/GitLab):**
