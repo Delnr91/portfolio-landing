@@ -1,0 +1,90 @@
+📂 Carpeta common/ – Componentes reutilizables
+Contiene componentes pequeños y genéricos de UI que se usan en varias secciones de la app. Pensados para promover el principio DRY (Don't Repeat Yourself) y facilitar el mantenimiento.
+
+🔹 SectionTitle.jsx
+Uso: Mostrar títulos principales en secciones como “Sobre Mí” o “Proyectos”.
+
+Beneficio: Asegura consistencia visual en todos los títulos.
+
+Mantenimiento: Cambiar el estilo aquí afecta todos los títulos.
+
+🔹 Button.jsx
+Uso: Botón genérico con variantes (primary, secondary, outline).
+
+Props útiles: href, icon, download, onClick, etc.
+
+Beneficio: Flexibilidad + estilo uniforme para toda la app.
+
+🔹 ProjectCard.jsx
+Uso: Tarjeta visual para mostrar proyectos individuales.
+
+Contenido: Imagen, título, descripción, tecnologías, enlaces.
+
+Beneficio: Mejora la legibilidad del componente Projects.jsx.
+
+🔹 SkillBadge.jsx
+Uso: Insignia para representar tecnologías/habilidades.
+
+Beneficio: Visualización uniforme en la sección de habilidades.
+
+Props típicos: icono + nombre de la skill.
+
+📂 Carpeta sections/ – Bloques principales de la interfaz
+Cada archivo aquí representa una sección visual completa e independiente de la página principal. Mejora la organización y escalabilidad del proyecto.
+
+🔹 Hero.jsx
+Uso: Sección introductoria ("Hero Section").
+
+Contenido típico: Nombre, título profesional, propuesta de valor, CTAs.
+
+Objetivo: Captar atención inmediata. Es la “portada” del portafolio.
+
+🔹 About.jsx
+Uso: Presentación personal/profesional.
+
+Contenido: Foto, biografía, enfoque de trabajo, habilidades blandas/técnicas, link al CV.
+
+Objetivo: Humanizar y contextualizar tu perfil.
+
+🔹 Projects.jsx
+Uso: Listado de proyectos realizados.
+
+Estructura: Define projectData (array) y usa ProjectCard para mostrar.
+
+Ventaja: Separación entre datos, renderizado y estilo.
+
+🔹 TechStack.jsx
+Uso: Mostrar tecnologías que manejas.
+
+Organización: Por categorías (ej: Frontend, Backend, IA...).
+
+Composición: Usa SkillBadge para cada tecnología.
+
+🔹 Experience.jsx
+Uso: Línea de tiempo de experiencias laborales o logros.
+
+Datos: Empresa, cargo, fechas, descripción.
+
+Nota: No se renderiza si no hay datos disponibles.
+
+🔹 Testimonials.jsx
+Uso: Citas o recomendaciones de terceros.
+
+Función: Aporta prueba social y genera confianza.
+
+Opcional: Se oculta si no hay testimonios.
+
+🔹 Contact.jsx
+Uso: Sección para enviar mensajes o mostrar medios de contacto.
+
+Elementos: Formulario (con envío a Formspree), email, redes sociales.
+
+Extras: Mensajes de éxito/error al enviar.
+
+🔹 Footer.jsx
+Uso: Pie de página.
+
+Contenido típico: Derechos reservados, enlaces secundarios.
+
+Propósito: Cierre estructural del sitio.
+
