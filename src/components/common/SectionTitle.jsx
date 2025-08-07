@@ -1,4 +1,5 @@
-import React from 'react'; // Importar React (aunque opcional en nuevas versiones, es buena práctica)
+
+import React from 'react';
 
 /**
  * Componente para Títulos de Sección reutilizables.
@@ -8,10 +9,8 @@ import React from 'react'; // Importar React (aunque opcional en nuevas versione
  * @returns {JSX.Element} - Elemento h2 estilizado.
  */
 const SectionTitle = ({ children }) => (
-  // Fuente Serif aplicada mediante clase 'font-serif' (requiere configuración en tailwind.config.js)
-  // Estilos de tamaño, peso, alineación, margen y color definidos con Tailwind
-  <h2 className="text-3xl md:text-4xl font-bold font-serif text-center mb-8 md:mb-12 text-stone-100">{children}</h2>
+  // Aseguramos que siempre sea 'text-center' y tenga un margen inferior consistente.
+  <h2 className="text-3xl md:text-4xl font-bold font-serif text-center mb-8 md:mb-12 text-stone-100 dark:text-gray-800 transition-colors duration-500">{children}</h2>
 );
 
-// Exporta el componente para poder importarlo en otros archivos
 export default SectionTitle;

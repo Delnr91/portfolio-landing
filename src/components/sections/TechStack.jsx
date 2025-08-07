@@ -1,84 +1,88 @@
-import React from 'react'; // Importar React
-// eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion'; // Para animaciones
-import SectionTitle from '../common/SectionTitle'; // Título reutilizable
-import SkillBadge from '../common/SkillBadge'; // Badge de habilidad reutilizable
-// Importar TODOS los iconos necesarios para las tecnologías listadas en el objeto 'stack'
-import { Code, Braces, FileCode, Paintbrush, Wind, Server, Network, Cpu, Bot, Database, Github, Container, Cloud, Package } from 'lucide-react';
 
-/**
- * Sección de Stack Tecnológico.
- * Muestra las tecnologías agrupadas por categoría usando SkillBadge.
- * @returns {JSX.Element} - Sección de Stack Tecnológico completa.
- */
+import React from 'react';
+import { useTranslation } from 'react-i18next'; 
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
+import SectionTitle from '../common/SectionTitle';
+import SkillBadge from '../common/SkillBadge';
+
 const TechStack = () => {
-   // TU STACK TECNOLÓGICO (¡Ajustar según tus habilidades!)
-   // Mapeo de tecnologías a iconos de lucide-react (Mejor esfuerzo).
-   // Recordatorio: Sé honesto sobre tu nivel de dominio al presentar estas habilidades.
-   const stack = {
-    Frontend: [
-      { name: 'React', icon: Braces }, // Usar Braces para frameworks JS
-      { name: 'JavaScript (ES6+)', icon: Code },
-      { name: 'TypeScript', icon: Code },
-      { name: 'HTML5', icon: FileCode },
-      { name: 'CSS3 / SASS', icon: Paintbrush },
-      { name: 'Tailwind CSS', icon: Wind },
+  const { t } = useTranslation();
+
+  const stack = {
+    'Frontend': [
+      { name: 'JavaScript', icon: 'JavaScript' },
+      { name: 'React', icon: 'React' },
+      { name: 'HTML5', icon: 'HTML5' },
+      { name: 'CSS3', icon: 'CSS3' },
+      { name: 'TypeScript', icon: 'TypeScript' },
+      { name: 'Tailwind CSS', icon: 'Tailwind CSS' },
     ],
-    Backend: [
-      { name: 'Spring Boot', icon: Server }, // O Code si se prefiere
-      { name: 'Java', icon: Code },
-      { name: 'Node.js', icon: Server },
-      { name: 'Express', icon: Server },
-      { name: 'REST APIs', icon: Network }, // Reutilizando Network o usar Code
-      { name: 'XAMPP', icon: Server },
+    'Backend': [ 
+      { name: 'Java', icon: 'Java' },
+      { name: 'Spring Boot', icon: 'Spring Boot' },
+      { name: 'Spring Security', icon: 'Spring Security' },
+      { name: 'Microservices', icon: 'Microservices' },
+      { name: 'Patrones de Diseño', icon: 'Patrones de Diseño' },
     ],
-    'IA / Modelos y Herramientas': [ // Categoría IA actualizada
-        { name: 'ChatGPT / LLMs', icon: Bot },
-        { name: 'Google AI Studio', icon: Bot }, // Actualizado
-        { name: 'Python (para IA)', icon: Code },
+    'Testing & Calidad': [
+      { name: 'JUnit', icon: 'JUnit' },
+      { name: 'Mockito', icon: 'Mockito' },
     ],
-    Databases: [
-      { name: 'SQL (PostgreSQL, MySQL)', icon: Database },
-      // { name: 'NoSQL (MongoDB)', icon: Database }, // Eliminado según solicitud
-      { name: 'JPA / Hibernate', icon: Database }, // O Code
+    'Bases de Datos': [
+      { name: 'PostgreSQL', icon: 'PostgreSQL' },
+      { name: 'MySQL', icon: 'MySQL' },
+      { name: 'SQL', icon: 'SQL' },
     ],
-    'Tools & DevOps': [
-      { name: 'Git / GitHub', icon: Github },
-      { name: 'Docker', icon: Container },
-      { name: 'Google Cloud', icon: Cloud },
-      { name: 'Postman', icon: Network },
-      { name: 'Vercel / Netlify', icon: Cloud }, // O Server
-      { name: 'Maven / Gradle', icon: Package }, // Icono de paquete
+    'Cloud & DevOps': [
+      { name: 'Docker', icon: 'Docker' },
+      { name: 'Postman', icon: 'Postman' },
+      { name: 'Git', icon: 'Git' },
+      { name: 'GitHub', icon: 'GitHub' },
+      { name: 'Google Cloud', icon: 'Google Cloud' },
+    ],
+    'IA & Herramientas Complementarias': [
+      { name: 'IA Generativa', icon: 'IA Generativa' },
+      { name: 'Prompt Engineering', icon: 'Prompt Engineering' },
+      { name: 'Vibe Coding', icon: 'Vibe Coding' },
+      { name: 'MCP (Protocolo de Contexto de Modelo)', icon: 'MCP' },
     ],
   };
 
+  
+  const categoryTranslationKeys = {
+    'Frontend': 'tech_stack_section.frontend_category',
+    'Backend': 'tech_stack_section.backend_category',
+    'Testing & Calidad': 'tech_stack_section.testing_category',
+    'Bases de Datos': 'tech_stack_section.databases_category',
+    'Cloud & DevOps': 'tech_stack_section.cloud_devops_category',
+    'IA & Herramientas Complementarias': 'tech_stack_section.ai_tools_category',
+  };
+
   return (
-    // Contenedor de la sección con ID, estilos de fondo y padding
-    <section id="tech-stack" className="py-16 md:py-24 bg-gray-800 px-4">
-      {/* Contenedor principal con ancho máximo */}
-      <div className="container mx-auto max-w-6xl">
-        {/* Título de la sección */}
-        <SectionTitle>Stack Tecnológico</SectionTitle>
-        {/* Itera sobre cada categoría del objeto 'stack' */}
-        {Object.entries(stack).map(([category, technologies]) => (
-          // Contenedor animado para cada categoría
+    <section
+      id="tech-stack"
+      className="min-h-screen flex flex-col items-center justify-center px-4 py-16
+                 bg-gray-800 dark:bg-blue-50 transition-colors duration-500"
+    >
+      <div className="container mx-auto max-w-6xl w-full flex-grow flex flex-col justify-center">
+        <SectionTitle>{t('tech_stack_section.title')}</SectionTitle>
+        {Object.entries(stack).map(([categoryName, technologies]) => (
           <motion.div
-            key={category} // Clave única para el mapeo
-            initial={{ opacity: 0, x: -20 }} // Animación de entrada
-            whileInView={{ opacity: 1, x: 0 }} // Animación al aparecer en vista
-            viewport={{ once: true, amount: 0.2 }} // Configuración de la vista
-            transition={{ duration: 0.5 }} // Duración
-            className="mb-12" // Margen inferior entre categorías
+            key={categoryName}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8 w-full"
           >
-            {/* Título de la categoría */}
-            <h3 className="text-2xl font-semibold font-serif mb-6 text-center md:text-left text-stone-200">{category}</h3>
-            {/* Cuadrícula responsiva para los badges de tecnología */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {/* Mapea las tecnologías dentro de la categoría */}
-              {technologies.map((tech) => (
-                // Renderiza un SkillBadge para cada tecnología, pasando el icono y nombre
-                // Usa el icono 'Code' como fallback si no se especifica uno
-                <SkillBadge key={tech.name} icon={tech.icon || Code} name={tech.name} />
+            <h3 className="text-2xl font-semibold font-serif mb-6 text-center text-stone-100
+                           dark:text-gray-800 transition-colors duration-500">
+              {t(categoryTranslationKeys[categoryName])}
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-items-center">
+              {technologies.map((tech, index) => (
+                <SkillBadge key={index} name={tech.name} icon={tech.icon} />
               ))}
             </div>
           </motion.div>
@@ -88,5 +92,4 @@ const TechStack = () => {
   );
 };
 
-// Exporta el componente para usarlo en App.jsx
 export default TechStack;

@@ -1,4 +1,4 @@
-import React from 'react'; // Importar React
+import React from 'react'; 
 
 /**
  * Componente de Botón reutilizable.
@@ -45,5 +45,4 @@ const Button = ({ href, children, variant = 'primary', className = '', icon: Ico
   );
 };
 
-// Exporta el componente para que pueda ser importado en otros archivos
 export default Button;

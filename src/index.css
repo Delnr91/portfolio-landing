@@ -1,3 +1,37 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Añade esto al final de tu archivo index.css */
+/* Esta regla CSS aplica un "margen" superior cuando se scrollea a un elemento con un ID.
+   Ajusta el valor (ej. 5rem o 80px) para que coincida con la altura de tu header fijo,
+   evitando que el header cubra el contenido de la sección.
+*/
+section[id] {
+  scroll-margin-top: 5rem; /* Ajusta este valor según la altura de tu header */
+}
+
+/* Opcional: Estilos para la barra de scroll (solo para mejorar la estética) */
+/* Puedes personalizar estos colores para que combinen con tu tema */
+/* ::-webkit-scrollbar {
+  width: 10px;
+} */
+/* ::-webkit-scrollbar-track {
+  background: #2a2e3a; /* Fondo de la barra de scroll para modo oscuro */
+/* } */
+/* ::-webkit-scrollbar-thumb {
+  background: #00bcd4; /* Color de la "manija" de la barra de scroll (tu color de acento) */
+/* border-radius: 5px;
+} */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #00a0b8;
+} */
+
+/* Para el modo claro, podemos definir estilos de scrollbar específicos si se ve mal */
+/* html.dark ::-webkit-scrollbar-track {
+  background: #f0f0f0;
+} */
+/* html.dark ::-webkit-scrollbar-thumb {
+  background: #008c9e;
+} */

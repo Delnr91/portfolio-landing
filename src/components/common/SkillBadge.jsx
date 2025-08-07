@@ -1,22 +1,74 @@
-import React from 'react'; // Importar React
-import { Code } from 'lucide-react'; // Importar el icono 'Code' como fallback por si no se pasa un icono específico
+
+import React from 'react';
+import {
+  Code, Server, Database, Cloud, Laptop, GitBranch, Github, Figma, Sparkles, Component,
+  Search, Zap, FileCode, Key, BarChart, TestTube, Shield,
+  Network, Layout, Pyramid,
+  Lightbulb, // Sugerido para IA Generativa, Prompt Engineering (ideas, creatividad)
+  Pencil, // Para Prompt Engineering (escribir, guiar)
+ 
+} from 'lucide-react'; 
 
 /**
- * Componente para mostrar una habilidad o tecnología con un icono.
- * @param {object} props - Propiedades del componente.
- * @param {React.ElementType} [props.icon] - Componente de icono a mostrar (de lucide-react). Si no se proporciona, usa el icono 'Code'.
- * @param {string} props.name - Nombre de la habilidad/tecnología.
- * @returns {JSX.Element} - Badge de habilidad estilizado.
+ * Mapeo de nombres de habilidades a componentes de íconos de lucide-react.
+ * ¡Ajusta estos mapeos y las importaciones de Lucide según los íconos que elijas de lucide.dev!
  */
-const SkillBadge = ({ icon: Icon, name }) => (
-  // Contenedor principal del badge con estilos de fondo, borde, sombra y efectos hover
-  <div className="flex flex-col items-center p-4 bg-gray-800 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-700 transition duration-300 border border-gray-700">
-    {/* Renderiza el icono pasado como prop 'icon'. Si no se pasa ninguno (Icon es null o undefined), usa el icono 'Code' importado como fallback. */}
-    {Icon ? <Icon className="w-10 h-10 mb-2 text-cyan-400" /> : <Code className="w-10 h-10 mb-2 text-cyan-400" />}
-    {/* Nombre de la habilidad/tecnología */}
-    <span className="text-sm font-medium text-stone-300 text-center">{name}</span>
-  </div>
-);
+const iconComponents = {
+  // Frontend
+  'JavaScript': Zap,
+  'React': Sparkles,
+  'HTML5': FileCode,
+  'CSS3': FileCode,
+  'TypeScript': Code,
+  'Tailwind CSS': Component,
 
-// Exporta el componente para usarlo en TechStack
+  // Backend (Java/Spring)
+  'Java': Code,
+  'Spring Boot': Server,
+  'Spring Security': Shield,
+  'Microservicios': Network,
+  'Patrones de Diseño': Layout,
+
+  // Testing & Calidad
+  'JUnit': TestTube,
+  'Mockito': TestTube,
+
+  // Bases de Datos
+  'PostgreSQL': Database,
+  'MySQL': Database,
+  'SQL': Key,
+
+  // Cloud & DevOps
+  'Docker': Code,
+  'Postman': Search,
+  'Git': GitBranch,
+  'GitHub': Github,
+  'Google Cloud': Cloud,
+
+  // IA & Herramientas Complementarias (Actualizado)
+  'IA Generativa': Lightbulb,
+  'Prompt Engineering': Pencil,
+  'Vibe Coding': Code,
+  'MCP': Lightbulb,
+};
+
+const SkillBadge = ({ name, icon }) => {
+  const IconComponent = iconComponents[icon] || Laptop; // Fallback a Laptop si no se encuentra el icono
+
+  if (!iconComponents[icon]) {
+    console.warn(`SkillBadge: Icono "${icon}" no encontrado en iconComponents. Usando icono de fallback.`);
+  }
+
+  return (
+    <div className="flex flex-col items-center p-4 rounded-lg shadow-md
+                    bg-gray-700 hover:bg-gray-600 transition-all duration-300 transform hover:scale-105
+                    border border-gray-600 dark:bg-white dark:hover:bg-gray-50 dark:border-gray-200">
+      <IconComponent className="w-10 h-10 mb-2 text-cyan-400 dark:text-cyan-700 transition-colors duration-500" />
+      <span className="text-sm font-medium text-stone-100 dark:text-gray-800 transition-colors duration-500">
+        {name}
+      </span>
+    </div>
+  );
+};
+
 export default SkillBadge;

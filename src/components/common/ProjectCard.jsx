@@ -1,95 +1,100 @@
-import React from 'react'; // Importar React
+// src/components/common/ProjectCard.jsx
+import React from 'react';
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion'; // Importar motion para animaciones
-import { ExternalLink, Github } from 'lucide-react'; // Importar iconos necesarios
-import Button from './Button'; // Importar el componente Button que acabamos de crear
+import { motion } from 'framer-motion';
+import { Github, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-/**
- * Componente para mostrar la tarjeta de un proyecto individual.
- * Incluye imagen, título, descripción, stack tecnológico y enlaces a demo/código.
- * @param {object} props - Propiedades del componente.
- * @param {string} props.title - Título del proyecto.
- * @param {string} props.description - Descripción del proyecto.
- * @param {string} props.imageUrl - URL de la imagen del proyecto.
- * @param {string[]} props.techStack - Array de strings con las tecnologías usadas.
- * @param {string} [props.liveUrl] - URL de la demo en vivo (opcional).
- * @param {string} [props.repoUrl] - URL del repositorio de código (opcional).
- * @returns {JSX.Element} - Tarjeta de proyecto estilizada y animada.
- */
-const ProjectCard = ({ title, description, imageUrl, techStack, liveUrl, repoUrl }) => (
-  // Animación de entrada con Framer Motion
-  <motion.div
-    initial={{ opacity: 0, y: 20 }} // Estado inicial
-    whileInView={{ opacity: 1, y: 0 }} // Estado animado al entrar en vista
-    viewport={{ once: true, amount: 0.3 }} // Configuración de la vista para la animación
-    transition={{ duration: 0.5 }} // Duración de la animación
-    // Estilos de la tarjeta: fondo, bordes redondeados, sombra, transformación en hover, bordes, hover de borde, grupo para efectos internos
-    className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-[1.02] transition duration-300 ease-in-out border border-gray-700 hover:border-cyan-400 group"
-  >
-    {/* Contenedor para la imagen con overflow hidden para controlar el escalado */}
-    <div className="overflow-hidden">
-        {/* Recordatorio: Usar imágenes de alta calidad y atractivas para cada proyecto */}
-        <img
-          // Usa la URL proporcionada o un placeholder si no hay URL
-          src={imageUrl || 'https://placehold.co/600x400/1f2937/9ca3af?text=Imagen+Proyecto'}
-          alt={`[Imagen de ${title || 'Proyecto'}]`} // Texto alternativo descriptivo
-          // Estilos de la imagen: ancho completo, altura fija, ajuste de objeto, transición y escalado en hover (usando 'group-hover')
-          className="w-full h-48 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-          // Manejador de error para mostrar un placeholder si la imagen falla
-          onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/1f2937/9ca3af?text=Error+Imagen'; }}
-        />
-    </div>
-    {/* Contenedor para el contenido textual de la tarjeta */}
-    <div className="p-6">
-      {/* Título del proyecto */}
-      <h3 className="text-xl font-semibold font-serif mb-2 text-stone-100">{title || 'Nombre del Proyecto'}</h3>
-      {/* Descripción del proyecto */}
-      {/* Recordatorio: Descripción clara y concisa. Incluir: Problema resuelto, tu rol específico, impacto/resultado y aprendizaje clave. */}
-      <p className="text-stone-400 mb-4 text-sm">{description || 'Descripción detallada del proyecto aquí...'}</p>
-      {/* Sección de Tecnologías */}
-      <div className="mb-4">
-        <h4 className="font-semibold text-sm mb-1 text-stone-300">Tecnologías:</h4>
-        {/* Mapeo del array techStack para mostrar badges */}
-        <div className="flex flex-wrap gap-2">
-          {/* Usa el array techStack o uno por defecto si no se proporciona */}
-          {(techStack && techStack.length > 0 ? techStack : ['React', 'Tailwind', 'Node.js']).map((tech) => (
-            <span key={tech} className="bg-gray-700 text-cyan-100 text-xs font-medium px-2.5 py-0.5 rounded-full">{tech}</span>
-          ))}
+const ProjectCard = ({ title, description, imageUrl, techStack, liveUrl, repoUrl }) => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="flex flex-col rounded-lg shadow-xl overflow-hidden
+                    bg-gray-800 border border-gray-700
+                    dark:bg-white dark:border-gray-200
+                    hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+      {/* Contenedor del banner/imagen. Si imageUrl es null, solo muestra el título h2 como banner. */}
+      <div className="w-full h-48 flex items-center justify-center p-4
+                      bg-gray-700 text-stone-100 dark:bg-gray-100 dark:text-gray-800">
+        {imageUrl ? ( // Si imageUrl existe, renderiza la imagen
+          <img
+            className="w-full h-full object-cover object-center"
+            src={imageUrl}
+            alt={t('projects_section.project_image_alt', { title: title })}
+            onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/374151/e5e7eb'; }}
+          />
+        ) : ( // Si imageUrl es null, renderiza el título como un banner de texto
+          <h2 className="text-2xl md:text-3xl font-bold font-serif text-center break-words leading-tight px-2"> {/* px-2 para asegurar padding si el título es largo */}
+            {title}
+          </h2>
+        )}
+      </div>
+      {/* Contenido de texto de la tarjeta (el h3 principal) */}
+      <div className="p-6 flex-grow">
+        {/* Este h3 se muestra DESPUÉS del banner/imagen/título.
+            Puedes mantenerlo o eliminarlo si el h2 de arriba es suficiente.
+            Para mantenerlo como lo tenías, lo dejamos.
+        */}
+        <h3 className="text-xl font-semibold font-serif mb-3 text-stone-100
+                       dark:text-gray-800 transition-colors duration-500">
+          {title}
+        </h3>
+        <p className="text-stone-300 text-sm mb-4 leading-relaxed
+                      dark:text-gray-600 transition-colors duration-500">
+          {description}
+        </p>
+        <div className="mb-4">
+          <h4 className="text-sm font-medium text-cyan-400 mb-2
+                         dark:text-cyan-700 transition-colors duration-500">
+            {t('common.technologies_used')}
+          </h4>
+          <div className="flex flex-wrap gap-2">
+            {techStack.map((tech, index) => (
+              <span
+                key={index}
+                className="px-3 py-1 bg-gray-700 text-xs rounded-full font-medium text-stone-200
+                           dark:bg-gray-200 dark:text-gray-700 transition-colors duration-500"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-      {/* Sección de Enlaces (Demo y Código) */}
-      {/* Recordatorio: Asegurarse que los enlaces a Demo y Código estén siempre visibles y funcionen */}
-      <div className="flex justify-start gap-4 mt-4">
-        {/* Botón de Demo (se muestra solo si liveUrl existe) */}
+      {/* Contenedor de botones de acción */}
+      <div className="p-6 border-t border-gray-700 flex justify-center gap-4 mt-auto
+                      dark:border-gray-200 transition-colors duration-500">
         {liveUrl && (
-          <Button
+          <a
             href={liveUrl}
-            variant="outline"
-            className="text-sm px-4 py-2" // Estilos más pequeños para botones de card
-            icon={ExternalLink} // Icono de enlace externo
-            target="_blank" // Abrir en nueva pestaña
-            rel="noopener noreferrer" // Buenas prácticas de seguridad para target="_blank"
-          >
-            Demo
-          </Button>
-        )}
-        {/* Botón de Código (se muestra solo si repoUrl existe) */}
-        {repoUrl && (
-          <Button
-            href={repoUrl}
-            variant="secondary"
-            className="text-sm px-4 py-2" // Estilos más pequeños
-            icon={Github} // Icono de GitHub
-            target="_blank" // Abrir en nueva pestaña
+            target="_blank"
             rel="noopener noreferrer"
+            className="flex items-center px-4 py-2 bg-cyan-600 text-white rounded-md text-sm font-medium
+                       hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-75
+                       dark:bg-cyan-700 dark:hover:bg-cyan-800 dark:focus:ring-cyan-600
+                       transition-colors duration-500"
           >
-            Código
-          </Button>
+            <ExternalLink className="w-4 h-4 mr-2" />
+            {t('common.demo')}
+          </a>
+        )}
+        {repoUrl && (
+          <a
+            href={repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center px-4 py-2 bg-gray-700 text-stone-200 rounded-md text-sm font-medium
+                       hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75
+                       dark:bg-gray-200 dark:text-gray-700 dark:hover:bg-gray-300 dark:focus:ring-gray-400
+                       transition-colors duration-500"
+          >
+            <Github className="w-4 h-4 mr-2" />
+            {t('common.github')}
+          </a>
         )}
       </div>
     </div>
-  </motion.div>
-);
+  );
+};
 
-// Exporta el componente para poder usarlo en otros lugares (como en la sección Projects)
 export default ProjectCard;

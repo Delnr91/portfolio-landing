@@ -7,10 +7,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Diagnostic reports (https://nodejs.org/api/report.html)
+.report/
+
+# Node.js
+/node_modules
+/dist
+/build
+/tmp
+.env  
+.env.* 
 
 # Editor directories and files
 .vscode/*
