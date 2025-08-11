@@ -1,4 +1,3 @@
-
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
@@ -15,7 +14,7 @@ import { useTranslation } from 'react-i18next';
  * @returns {JSX.Element} - Sección Sobre Mí completa.
  */
 const About = () => {
-  
+
   // Inicializa el hook useTranslation
   const { t } = useTranslation();
 
@@ -23,7 +22,7 @@ const About = () => {
     <section
       id="about"
       className="min-h-screen flex flex-col items-center px-4 py-16
-               bg-gray-800 dark:bg-gray-50 transition-colors duration-500"
+                 bg-gray-800 dark:bg-gray-50 transition-colors duration-500"
     >
       <div className="container mx-auto max-w-6xl w-full flex-grow flex flex-col justify-center">
         <SectionTitle>{t('about_section.title')}</SectionTitle> {/* Traducido */}
@@ -36,31 +35,32 @@ const About = () => {
         >
           {/* Columna para la Imagen */}
           <div className="md:w-1/3 flex justify-center md:justify-end shrink-0">
-            {/* ¡ACTUALIZA ESTA LÍNEA CON LA RUTA A TU FOTO! */}
+            {/* RUTA DE TU FOTO DE PERFIL */}
             <img
-              src="/images/mi-foto-perfil.webp" // EJEMPLO: Si tu foto se llama mi-foto-perfil.webp y está en public/images
-              alt={t('about_section.photo_alt_text', { name: t('common.name') })} // Texto alternativo traducido y dinámico
+              src="/images/mi-foto-perfil.webp"
+              alt={t('about_section.photo_alt_text', { name: t('common.name') })}
               className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover shadow-lg border-4 border-cyan-400
                          dark:border-cyan-700 transition-colors duration-500"
-              onError={(e) => { e.target.onerror = null; e.target.src='[https://placehold.co/300x300/374151/e5e7eb?text=Error+Foto](https://placehold.co/300x300/374151/e5e7eb?text=Error+Foto)'; }}
+              // CORREGIDO: URL del placeholder en el onError para evitar el bucle de errores
+              onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/300x300/374151/e5e7eb?text=Error+Foto'; }}
             />
           </div>
           {/* Columna para el Texto */}
           <div className="md:w-2/3 flex-grow text-center md:text-left">
             {/* Párrafo Introductorio (Storytelling) */}
             <p className="text-lg text-stone-300 mb-6 leading-relaxed
-                          dark:text-gray-700 transition-colors duration-500">
-              {t('about_section.introduction_paragraph')} {/* Traducido */}
+                           dark:text-gray-700 transition-colors duration-500">
+              {t('about_section.introduction_paragraph')}
             </p>
             {/* Sección Filosofía/Enfoque */}
             <div className="mb-6">
               <h3 className="text-xl font-semibold font-serif mb-3 text-stone-100
-                             dark:text-gray-800 transition-colors duration-500">
-                {t('about_section.philosophy_title')} {/* Traducido */}
+                               dark:text-gray-800 transition-colors duration-500">
+                {t('about_section.philosophy_title')}
               </h3>
               <p className="text-stone-400 italic
-                            dark:text-gray-600 transition-colors duration-500">
-                {t('about_section.philosophy_quote')} {/* Traducido */}
+                             dark:text-gray-600 transition-colors duration-500">
+                {t('about_section.philosophy_quote')}
               </p>
             </div>
             {/* Cuadrícula para Habilidades Blandas y Técnicas */}
@@ -68,21 +68,21 @@ const About = () => {
               {/* Habilidades Blandas */}
               <div>
                 <h3 className="text-xl font-semibold font-serif mb-3 text-stone-100
-                               dark:text-gray-800 transition-colors duration-500">
-                  {t('about_section.soft_skills_title')} {/* Traducido */}
+                                 dark:text-gray-800 transition-colors duration-500">
+                  {t('about_section.soft_skills_title')}
                 </h3>
                 <ul className="space-y-2 text-stone-400 list-none p-0 flex flex-col items-center md:items-start">
-                  <li className="flex items-center text-stone-400 dark:text-gray-600 transition-colors duration-500"><BrainCircuit className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> {t('about_section.problem_solving')}</li> {/* Traducido */}
-                  <li className="flex items-center"><Users className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> {t('about_section.teamwork')}</li> {/* Traducido */}
-                  <li className="flex items-center"><MessageSquare className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> {t('about_section.effective_communication')}</li> {/* Traducido */}
-                  <li className="flex items-center"><Target className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> {t('about_section.continuous_learning')}</li> {/* Traducido */}
+                  <li className="flex items-center text-stone-400 dark:text-gray-600 transition-colors duration-500"><BrainCircuit className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> {t('about_section.problem_solving')}</li>
+                  <li className="flex items-center"><Users className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> {t('about_section.teamwork')}</li>
+                  <li className="flex items-center"><MessageSquare className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> {t('about_section.effective_communication')}</li>
+                  <li className="flex items-center"><Target className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> {t('about_section.continuous_learning')}</li>
                 </ul>
               </div>
               {/* Habilidades Técnicas Clave */}
               <div>
                 <h3 className="text-xl font-semibold font-serif mb-3 text-stone-100
-                               dark:text-gray-800 transition-colors duration-500">
-                  {t('about_section.tech_skills_title')} {/* Traducido */}
+                                 dark:text-gray-800 transition-colors duration-500">
+                  {t('about_section.tech_skills_title')}
                 </h3>
                 <ul className="space-y-2 text-stone-400 list-none p-0 flex flex-col items-center md:items-start">
                   <li className="flex items-center text-stone-400 dark:text-gray-600 transition-colors duration-500"><Code className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> React</li>
@@ -97,13 +97,13 @@ const About = () => {
             {/* Botón para Descargar CV */}
             <div className="text-center md:text-left">
               <Button
-                href="/nombre-de-tu-cv.pdf" // Asegúrate de que esta ruta sea correcta
+                href="/nombre-de-tu-cv.pdf"
                 variant="outline"
                 icon={Download}
-                download="Daniel_Nunez_Rojas_CV.pdf" // Nombre sugerido para la descarga
+                download="Daniel_Nunez_Rojas_CV.pdf"
                 className="text-sm"
               >
-                {t('common.download_cv')} {/* Traducido */}
+                {t('common.download_cv')}
               </Button>
             </div>
           </div>
