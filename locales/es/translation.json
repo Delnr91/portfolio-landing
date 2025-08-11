@@ -1,0 +1,104 @@
+{
+  "common": {
+    "name": "Daniel Núñez Rojas",
+    "available_for_work": "Disponible para Trabajar",
+    "view_my_projects": "Ver mis Proyectos",
+    "contact_me": "Contacta conmigo",
+    "download_cv": "Descargar CV",
+    "technologies_used": "Tecnologías Utilizadas:",
+    "demo": "Demo",
+    "github": "GitHub",
+    "pass_to_see_email": "Pasa el mouse para ver mi correo",
+    "send_message": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "all_rights_reserved": "Todos los derechos reservados."
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "projects": "Proyectos",
+    "stack": "Stack",
+    "experience": "Experiencia",
+    "testimonials": "Testimonios",
+    "contact": "Contacto"
+  },
+  "hero_section": {
+    "title": "Desarrollador Fullstack | Especialista en React, Spring Boot e IA",
+    "description": "Apasionado por crear interfaces accesibles y de alto rendimiento que resuelven problemas reales, aplicando soluciones de IA cuando aportan valor."
+  },
+  "about_section": {
+    "title": "Sobre Mí",
+    "photo_alt_text": "Foto de perfil de {{name}}",
+    "introduction_paragraph": "Como Desarrollador Fullstack apasionado por la creación de soluciones integrales, mi expertise se centra en el diseño y la implementación de aplicaciones web robustas con Java y Spring Boot en el backend, y el desarrollo de interfaces de usuario dinámicas y accesibles con React. Mi enfoque va más allá del código: me impulsa la capacidad de transformar ideas complejas en experiencias intuitivas y eficientes, siempre buscando la innovación. Mi curiosidad me lleva a explorar activamente las intersecciones entre el desarrollo Fullstack y la Inteligencia Artificial Generativa, aplicando principios de Prompt Engineering para potenciar la creación de software.",
+    "philosophy_title": "Filosofía / Enfoque",
+    "philosophy_quote": "Creo firmemente en escribir código limpio, mantenible y priorizar siempre la experiencia del usuario final. Me enfoco en la entrega continua de valor a través de soluciones robustas y escalables, explorando activamente el potencial de la IA.",
+    "soft_skills_title": "Habilidades Blandas",
+    "problem_solving": "Resolución de Problemas",
+    "teamwork": "Trabajo en Equipo",
+    "effective_communication": "Comunicación Efectiva",
+    "continuous_learning": "Aprendizaje Continuo",
+    "tech_skills_title": "Habilidades Técnicas Clave"
+  },
+     "projects_section": {
+      "title": "Proyectos Destacados",
+      "project1_title": "Sistema de Gestión Integral: Clientes, Empleados y Proveedores",
+      "project1_description": "Aplicación empresarial Full Stack diseñada para la administración eficiente de Clientes, Empleados y Proveedores, implementando operaciones CRUD completas y una API REST robusta con Java y Spring Boot. Este proyecto integral demuestra mi competencia en la construcción de interfaces de usuario adaptables con React y Tailwind CSS, gestión de persistencia con bases de datos SQL (PostgreSQL y MySQL), y habilidades en contenerización (Docker) y despliegue en entornos cloud como Google Cloud Platform y Render.com. Cuenta con dos ramas principales: 'main' para configuración local (MySQL/GCP) y 'render-deploy' optimizada para despliegue en Render.com (PostgreSQL), evidenciando mi capacidad para adaptar y operar soluciones en diversos entornos.",
+      "project2_title": "InmoRISM: Plataforma Inmobiliaria con Microservicios (Java/Spring)",
+      "project2_description": "InmoRISM es una avanzada plataforma web para la gestión inmobiliaria, diseñada bajo una robusta arquitectura de microservicios con Java y Spring Boot. Demuestra mi experticia en la implementación de sistemas distribuidos, incluyendo Service Discovery (Eureka), comunicación inter-servicios (Feign Client), y patrones de resiliencia (Circuit Breaker con Resilience4j). Gestiona usuarios, un catálogo de inmuebles y el proceso de compra, destacando habilidades en seguridad (JWT, Spring Security), bases de datos diversas (PostgreSQL/MySQL), testing (JUnit/Mockito) y documentación de API (Swagger). La interfaz de usuario es renderizada por el servidor con Thymeleaf."
+    },
+ "tech_stack_section": {
+      "title": "Mi Stack Tecnológico",
+      "frontend_category": "Frontend",
+      "backend_category": "Backend",
+      "testing_category": "Testing & Calidad",
+      "databases_category": "Bases de Datos",
+      "cloud_devops_category": "Cloud & DevOps",
+      "ai_tools_category": "IA & Herramientas Complementarias"
+    },
+     "experience_section": {
+      "title": "Experiencia y Logros",
+      "project_name": "InmoRISM: Plataforma de Microservicios para Inmobiliaria",
+      "project_role": "Desarrollador Backend (Microservicios)",
+      "project_dates": "Noviembre 2024 - Marzo 2025",
+      "project_description_points": [
+        "Diseño e implementación de una arquitectura de microservicios con Java 21 y Spring Boot para un portal inmobiliario.",
+        "Desarrollo de servicios independientes (API Gateway, Inmuebles, Compras) y Service Discovery con Netflix Eureka.",
+        "Integración de seguridad avanzada con Spring Security y autenticación basada en JWT para el control de acceso y roles.",
+        "Aplicación de patrones de resiliencia como Circuit Breaker (Resilience4j) para asegurar la robustez del sistema distribuido.",
+        "Comunicación inter-servicios eficiente utilizando Feign Client y propagación de contexto de usuario.",
+        "Implementación de operaciones CRUD para usuarios, inmuebles y transacciones, con persistencia en PostgreSQL y MySQL.",
+        "Desarrollo de pruebas unitarias con JUnit 5 y Mockito, asegurando la calidad del código y la lógica de negocio.",
+        "Documentación interactiva de APIs con Swagger (OpenAPI 3) para facilitar el consumo y la colaboración.",
+        "Contenerización de servicios con Docker y gestión de dependencias con Maven."
+      ]
+    },
+       "testimonials_section": {
+      "title": "Lo que dicen de mí",
+      "testimonial1_quote": "Daniel capturó a la perfección la esencia de Calama Solar, creando un landing page que no solo luce profesional, sino que realmente destaca la visión y el producto de nuestra empresa. Su enfoque en la marca personal a través del diseño fue clave para el impacto que buscábamos en el mercado.",
+      "testimonial1_name": "Tomás Chaparro",
+      "testimonial1_title": "Dueño de Calama Solar",
+      "testimonial2_quote": "La colaboración con Daniel para nuestra empresa de carpas mineras fue excepcional. Comprendió nuestras necesidades específicas de la industria y transformó nuestra presencia online con un enfoque en la funcionalidad y la estética que superó nuestras expectativas. Un profesional altamente recomendable para cualquier proyecto digital.",
+      "testimonial2_name": "Gema Cortés",
+      "testimonial2_title": "Dueña de Fabrica de Carpas G&S",
+      "avatar_alt_text": "Avatar de {{name}}"
+    },
+   "contact_section": {
+      "title": "Contacto",
+      "send_message_title": "Envíame un Mensaje",
+      "name_label": "Nombre",
+      "email_label": "Email",
+      "message_label": "Mensaje",
+      "form_success": "¡Mensaje enviado con éxito! Te responderé pronto.",
+      "form_error_required": "Por favor, completa todos los campos.",
+      "form_error_invalid_email": "Por favor, introduce un correo electrónico válido.",
+      "form_error_config": "Error de configuración: El endpoint de Formspree no está definido. Contacta al administrador.",
+      "form_error_problem": "Hubo un problema al enviar tu mensaje. Intenta de nuevo.",
+      "form_error_connection": "Error de conexión. Por favor, inténtalo más tarde.",
+      "other_contact_title": "Otras formas de Contacto",
+      "follow_me_title": "Sígueme en Redes"
+    },
+  "footer_section": {
+    "created_with": "Creado con",
+    "all_rights": "Todos los derechos reservados."
+  }
+}
