@@ -10,7 +10,7 @@ i18n
   .use(initReactI18next)
   .init({
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/{{ns}}.json`,
     },
     supportedLngs: ['es', 'en'],
     fallbackLng: 'es',
@@ -19,11 +19,10 @@ i18n
       caches: ['localStorage'],
     },
     defaultNS: 'translation',
-    debug: true, // Puedes cambiar a 'false' una vez que funcione bien
+    debug: true,
     interpolation: {
       escapeValue: false,
     },
-    // ¡CAMBIADO A TRUE! Esto permite que React.Suspense funcione con las traducciones
     react: {
       useSuspense: true,
     },

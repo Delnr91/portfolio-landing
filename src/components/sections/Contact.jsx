@@ -11,7 +11,7 @@ import { Mail, Linkedin, Twitter, Github, Send, Instagram } from 'lucide-react';
  * @returns {JSX.Element} - Sección de Contacto completa.
  */
 const Contact = () => {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -22,9 +22,10 @@ const Contact = () => {
   const [showEmailHover, setShowEmailHover] = useState(false);
 
   const myRealEmail = "invdesdev33@gmail.com";
-  const myInstagram = "[https://instagram.com/danidev.io](https://instagram.com/danidev.io)";
-  const myGithub = "[https://github.com/Delnr91](https://github.com/Delnr91)";
-  const myLinkedin = "[https://www.linkedin.com/in/delnr91](https://www.linkedin.com/in/delnr91)";
+  // URLs corregidas sin la sintaxis de Markdown
+  const myInstagram = "https://instagram.com/danidev.io";
+  const myGithub = "https://github.com/Delnr91";
+  const myLinkedin = "https://www.linkedin.com/in/delnr91";
 
   const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
@@ -97,7 +98,7 @@ const Contact = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
             className="bg-gray-700 p-8 rounded-lg shadow-xl border border-gray-600
-                       dark:bg-white dark:border-gray-200 transition-colors duration-500"
+                         dark:bg-white dark:border-gray-200 transition-colors duration-500"
           >
             <h3 className="text-2xl font-bold font-serif mb-6 text-stone-100
                            dark:text-gray-800 transition-colors duration-500">{t('contact_section.send_message_title')}</h3> {/* Traducido */}
@@ -119,7 +120,7 @@ const Contact = () => {
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-stone-300 mb-1
-                                                  dark:text-gray-700 transition-colors duration-500">{t('contact_section.email_label')}</label> {/* Traducido */}
+                                                 dark:text-gray-700 transition-colors duration-500">{t('contact_section.email_label')}</label> {/* Traducido */}
                 <input
                   type="email"
                   id="email"
@@ -134,7 +135,7 @@ const Contact = () => {
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-stone-300 mb-1
-                                                    dark:text-gray-700 transition-colors duration-500">{t('contact_section.message_label')}</label> {/* Traducido */}
+                                                   dark:text-gray-700 transition-colors duration-500">{t('contact_section.message_label')}</label> {/* Traducido */}
                 <textarea
                   id="message"
                   name="message"
@@ -179,7 +180,7 @@ const Contact = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
             className="bg-gray-700 p-8 rounded-lg shadow-xl border border-gray-600
-                       dark:bg-white dark:border-gray-200 transition-colors duration-500"
+                         dark:bg-white dark:border-gray-200 transition-colors duration-500"
           >
             <h3 className="text-2xl font-bold font-serif mb-6 text-stone-100
                            dark:text-gray-800 transition-colors duration-500">{t('contact_section.other_contact_title')}</h3> {/* Traducido */}
@@ -196,7 +197,7 @@ const Contact = () => {
                     {myRealEmail}
                   </a>
                 ) : (
-                  t('common.pass_to_see_email') 
+                  t('common.pass_to_see_email')
                 )}
               </span>
             </div>
