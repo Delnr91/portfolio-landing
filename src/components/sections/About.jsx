@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import Button from '../common/Button';
 import { BrainCircuit, Users, MessageSquare, Target, Code, Cpu, Download } from 'lucide-react';
-
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -14,9 +13,8 @@ import { useTranslation } from 'react-i18next';
  * @returns {JSX.Element} - Sección Sobre Mí completa.
  */
 const About = () => {
-
-  // Inicializa el hook useTranslation
   const { t } = useTranslation();
+  const imageUrl = `${import.meta.env.BASE_URL}images/mi-foto-perfil.webp`;
 
   return (
     <section
@@ -25,7 +23,7 @@ const About = () => {
                  bg-gray-800 dark:bg-gray-50 transition-colors duration-500"
     >
       <div className="container mx-auto max-w-6xl w-full flex-grow flex flex-col justify-center">
-        <SectionTitle>{t('about_section.title')}</SectionTitle> {/* Traducido */}
+        <SectionTitle>{t('about_section.title')}</SectionTitle>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -35,24 +33,22 @@ const About = () => {
         >
           {/* Columna para la Imagen */}
           <div className="md:w-1/3 flex justify-center md:justify-end shrink-0">
-            {/* RUTA DE TU FOTO DE PERFIL */}
             <img
-              src="/images/mi-foto-perfil.webp"
+              // Usamos la variable de URL dinámica para que siempre apunte a la ruta correcta
+              src={imageUrl}
               alt={t('about_section.photo_alt_text', { name: t('common.name') })}
               className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover shadow-lg border-4 border-cyan-400
                          dark:border-cyan-700 transition-colors duration-500"
-              // CORREGIDO: URL del placeholder en el onError para evitar el bucle de errores
               onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/300x300/374151/e5e7eb?text=Error+Foto'; }}
             />
           </div>
-          {/* Columna para el Texto */}
+          {/* Columna para el Texto (sin cambios) */}
           <div className="md:w-2/3 flex-grow text-center md:text-left">
-            {/* Párrafo Introductorio (Storytelling) */}
+            {/* ... el resto del código del About.jsx sigue igual ... */}
             <p className="text-lg text-stone-300 mb-6 leading-relaxed
                            dark:text-gray-700 transition-colors duration-500">
               {t('about_section.introduction_paragraph')}
             </p>
-            {/* Sección Filosofía/Enfoque */}
             <div className="mb-6">
               <h3 className="text-xl font-semibold font-serif mb-3 text-stone-100
                                dark:text-gray-800 transition-colors duration-500">
@@ -63,9 +59,7 @@ const About = () => {
                 {t('about_section.philosophy_quote')}
               </p>
             </div>
-            {/* Cuadrícula para Habilidades Blandas y Técnicas */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-              {/* Habilidades Blandas */}
               <div>
                 <h3 className="text-xl font-semibold font-serif mb-3 text-stone-100
                                  dark:text-gray-800 transition-colors duration-500">
@@ -78,7 +72,6 @@ const About = () => {
                   <li className="flex items-center"><Target className="w-5 h-5 mr-2 text-cyan-400 dark:text-cyan-700" /> {t('about_section.continuous_learning')}</li>
                 </ul>
               </div>
-              {/* Habilidades Técnicas Clave */}
               <div>
                 <h3 className="text-xl font-semibold font-serif mb-3 text-stone-100
                                  dark:text-gray-800 transition-colors duration-500">
@@ -94,7 +87,6 @@ const About = () => {
                 </ul>
               </div>
             </div>
-            {/* Botón para Descargar CV */}
             <div className="text-center md:text-left">
               <Button
                 href="/nombre-de-tu-cv.pdf"
