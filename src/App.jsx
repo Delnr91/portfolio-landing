@@ -1,5 +1,4 @@
-// src/App.jsx
-// --- Importaciones ---
+
 import React, { useState } from 'react';
 // Importa el hook useTranslation de react-i18next
 import { useTranslation } from 'react-i18next';
@@ -36,7 +35,7 @@ function App() {
     { name: t('nav.projects'), href: '#projects' },
     { name: t('nav.stack'), href: '#tech-stack' },
     { name: t('nav.experience'), href: '#experience' },
-    /* { name: t('nav.testimonials'), href: '#testimonials' }, */
+    
     { name: t('nav.contact'), href: '#contact' },
   ];
 
